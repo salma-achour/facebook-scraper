@@ -30,5 +30,5 @@ navigate to http://0.0.0.0:5000/docs
 
 ## Run Tests with docker-compose
 ```bash
-docker-compose exec scraper pytest .
+docker-compose exec scraper pytest app/tests/tests.py
 ```
