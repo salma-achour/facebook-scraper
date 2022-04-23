@@ -1,0 +1,24 @@
+version: "3.8"
+services:
+  scraper:
+    build:
+      context: ./
+      dockerfile: ./Dockerfile
+    volumes:
+        - .:/code
+    ports:
+      - 5000:5000
+    environment:
+      - DATABASE_URL=mongodb://db/fbpages
+      - DATABASE_NAME=fbpages
+      - COLLECTION_NAME=fbcollection
+  db:
+    image: mongo
+    container_name: mongodbContainer
+    volumes:
+      - mongodb_data:/var/lib/data/db
+    ports:
+      - 27018:27017
+
+volumes:
+  mongodb_data:
